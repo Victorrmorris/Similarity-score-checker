@@ -7,6 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 import tensorflow_hub as hub
+from wordcloud import WordCloud, STOPWORDS
 import tensorflow.compat.v1 as tf
 import fasttext
 
@@ -88,8 +89,7 @@ def similarity_score(job_description_a, job_description_b, model):
     return(similarity_score_fasttext(job_description_a, job_description_b))
 
 
-def plot_word_cloud(title, text_list):
-  from wordcloud import WordCloud, STOPWORDS
+def plot_word_cloud(text_list):
   comment_words = ''
   stopwords = set(STOPWORDS)
 
@@ -112,16 +112,7 @@ def plot_word_cloud(title, text_list):
                   background_color ='white',
                   stopwords = stopwords,
                   min_font_size = 10).generate(comment_words)
-  
-  # plot the WordCloud image                      
-  plt.figure(figsize = (8, 8), facecolor = None)
-  plt.imshow(wordcloud)
-  plt.axis("off")
-  plt.title(title)
-  plt.tight_layout(pad = 0)
-  plt.savefig(title+'.png')
-  
-  plt.show()
+  return(wordcloud)
 
 def main():
     
@@ -165,10 +156,19 @@ def main():
         plt.title('Heatmap of similarities between all the job descriptions')
         st.pyplot(fig)
         st.write("The Similarity score between Job descriptions 1 and 2 is {}%".format(corr["job description 1".format(i)][1]))
-        st.write("The Similarity score between Job descriptions 1 and 3 is {}%".format(similarity_score(Job_description1,Job_description3)))
-        st.write("The Similarity score between Job descriptions 1 and 4 is {}%".format(similarity_score(Job_description1,Job_description4)))
-        st.write("The Similarity score between Job descriptions 1 and 5 is {}%".format(similarity_score(Job_description1,Job_description5)))
-        st.write("The Similarity score between Job descriptions 1 and 6 is {}%".format(similarity_score(Job_description1,Job_description6)))
+        st.write("The Similarity score between Job descriptions 1 and 3 is {}%".format(corr["job description 1".format(i)][2]))
+        st.write("The Similarity score between Job descriptions 1 and 4 is {}%".format(corr["job description 1".format(i)][3]))
+        st.write("The Similarity score between Job descriptions 1 and 5 is {}%".format(corr["job description 1".format(i)][4]))
+        st.write("The Similarity score between Job descriptions 1 and 6 is {}%".format(corr["job description 1".format(i)][5]))
+
+
+        # plot the WordCloud image                      
+        fig2 = plt.figure(figsize = (8, 8), facecolor = None)
+        plt.imshow(plot_word_cloud(job_description_list))
+        plt.axis("off")
+        plt.title("Word cloud of the job descriptions")
+        plt.tight_layout(pad = 0)
+        st.pyplot(fig2)
 
 if __name__ == "__main__":
     main()

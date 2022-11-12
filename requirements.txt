@@ -7,3 +7,4 @@ matplotlib
 fasttext
 tensorflow-cpu
 tensorflow-hub
+wordcloud
