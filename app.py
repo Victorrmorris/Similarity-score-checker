@@ -84,6 +84,7 @@ def similarity_score(job_description_a, job_description_b, model):
   if model == 'Count vectorizer- scikit learn':
     return(similarity_score_scikit(job_description_a, job_description_b))
   elif model == 'ELMo':
+    print("Warning !!! This will take some time - it requires patience")
     return(similarity_score_elmo(job_description_a, job_description_b))
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
