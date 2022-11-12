@@ -153,6 +153,7 @@ def main():
       with st.expander("See More Analysis"):
         fig = plt.figure(figsize=(20, 12))
         sns.heatmap(corr, cmap="Greens")
+        sns.set(font_scale=2)
         plt.title('Heatmap of similarities between all the job descriptions')
         st.pyplot(fig)
         st.write("The Similarity score between Job descriptions 1 and 2 is {}%".format(corr["job description 1".format(i)][1]))
