@@ -87,6 +87,42 @@ def similarity_score(job_description_a, job_description_b, model):
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
 
+
+def plot_word_cloud(title, text_list):
+  from wordcloud import WordCloud, STOPWORDS
+  comment_words = ''
+  stopwords = set(STOPWORDS)
+
+
+  for val in text_list:
+      
+      # typecaste each val to string
+      val = str(val)
+  
+      # split the value
+      tokens = val.split()
+      
+      # Converts each token into lowercase
+      for i in range(len(tokens)):
+          tokens[i] = tokens[i].lower()
+      
+      comment_words += " ".join(tokens)+" "
+  
+  wordcloud = WordCloud(width = 800, height = 800,
+                  background_color ='white',
+                  stopwords = stopwords,
+                  min_font_size = 10).generate(comment_words)
+  
+  # plot the WordCloud image                      
+  plt.figure(figsize = (8, 8), facecolor = None)
+  plt.imshow(wordcloud)
+  plt.axis("off")
+  plt.title(title)
+  plt.tight_layout(pad = 0)
+  plt.savefig(title+'.png')
+  
+  plt.show()
+
 def main():
     
     # ===================== Set page config and background =======================
@@ -128,7 +164,7 @@ def main():
         sns.heatmap(corr, cmap="Greens")
         plt.title('Heatmap of similarities between all the job descriptions')
         st.pyplot(fig)
-        st.write("The Similarity score between Job descriptions 1 and 2 is {}%".format(similarity_score(Job_description1,Job_description2)))
+        st.write("The Similarity score between Job descriptions 1 and 2 is {}%".format(corr["job description 1".format(i)][1]))
         st.write("The Similarity score between Job descriptions 1 and 3 is {}%".format(similarity_score(Job_description1,Job_description3)))
         st.write("The Similarity score between Job descriptions 1 and 4 is {}%".format(similarity_score(Job_description1,Job_description4)))
         st.write("The Similarity score between Job descriptions 1 and 5 is {}%".format(similarity_score(Job_description1,Job_description5)))
