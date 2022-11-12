@@ -2,3 +2,7 @@ streamlit
 numpy
 sklearn
 pandas
+seaborn
+matplotlib
+fasttext
+tensorflow-cpu
