@@ -12,7 +12,6 @@ import fasttext
 
 tf.disable_v2_behavior()
 
-model_option ='Count vectorizer- scikit learn'
 
 
 
@@ -80,7 +79,7 @@ def similarity_score_elmo(job_description_a, job_description_b):
    else:
      return round(similarity*100,4)
 
-def similarity_score(job_description_a, job_description_b, model = model_option):
+def similarity_score(job_description_a, job_description_b, model):
   if model == 'Count vectorizer- scikit learn':
     return(similarity_score_scikit(job_description_a, job_description_b))
   elif model == 'ELMo':
@@ -120,7 +119,7 @@ def main():
       job_description_list = [Job_description1,Job_description2,Job_description3,Job_description4,Job_description5,Job_description6]
       corr = pd.DataFrame(index = ["job description {}".format(i) for i in range(1,7)])
       for i in range(1,7):
-        corr["job description {}".format(i)] = [similarity_score(job_description_list[i-1],job_description_list[k-1]) for k in range(1,7)]
+        corr["job description {}".format(i)] = [similarity_score(job_description_list[i-1],job_description_list[k-1], model_option) for k in range(1,7)]
         most_correlated = corr["job description 1"][1:].idxmax()
       st.success("I'm processing your request")
       st.write("The most correlated Job description is {}".format(most_correlated))
