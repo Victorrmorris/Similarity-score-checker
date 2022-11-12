@@ -27,7 +27,7 @@ all_text = " "
 for i in keyword_list:
     all_text+=i
 with open('train.txt', 'w', encoding="utf-8") as f:
-    f.write(a)
+    f.write(all_text)
 
 
 elmo = hub.Module("https://tfhub.dev/google/elmo/2", trainable=True)
