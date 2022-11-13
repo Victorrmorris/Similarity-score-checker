@@ -55,11 +55,12 @@ def similarity_score_scikit(job_description_a, job_description_b):
   A = jda.toarray()[0]
   jdb = vectorizer.transform([job_description_b])
   B = jdb.toarray()[0]
-  similarity = np.dot(A,B)/(norm(A)*norm(B))
+  similarity = float(np.dot(A,B)/(norm(A)*norm(B)))
   if np.isnan(similarity):
     return(0)
   else:
-    return(similarity.round(4)*100)
+    return round(similarity*100,4)
+
 
 def similarity_score_fasttext(job_description_a, job_description_b):
   A = ft.get_sentence_vector(job_description_a)
