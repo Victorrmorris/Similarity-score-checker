@@ -167,15 +167,15 @@ def main():
       st.write("The most correlated Job description is {}".format(most_correlated))
       with st.expander("See More Analysis"):
         fig = plt.figure(figsize=(20, 12))
-        sns.set(font_scale=2)
+        sns.set(font_scale=1.5)
         sns.heatmap(corr, cmap="Greens")
         plt.title('Heatmap of similarities between all the job descriptions')
         st.pyplot(fig)
-        st.write("The Similarity score between Job descriptions 1 and 2 is {}%".format(corr["job description 1".format(i)][1]))
+        st.write("\n The Similarity score between Job descriptions 1 and 2 is {}%".format(corr["job description 1".format(i)][1]))
         st.write("The Similarity score between Job descriptions 1 and 3 is {}%".format(corr["job description 1".format(i)][2]))
         st.write("The Similarity score between Job descriptions 1 and 4 is {}%".format(corr["job description 1".format(i)][3]))
         st.write("The Similarity score between Job descriptions 1 and 5 is {}%".format(corr["job description 1".format(i)][4]))
-        st.write("The Similarity score between Job descriptions 1 and 6 is {}%".format(corr["job description 1".format(i)][5]))
+        st.write("The Similarity score between Job descriptions 1 and 6 is {}%\n".format(corr["job description 1".format(i)][5]))
 
 
         # plot the WordCloud image                      
