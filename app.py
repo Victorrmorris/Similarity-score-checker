@@ -73,7 +73,6 @@ def similarity_score_fasttext(job_description_a, job_description_b):
     return round(similarity*100,4)
 
 def similarity_score_elmo(job_description_a, job_description_b):
-   st.warning("Warning !!! This will take some time - it requires patience")
    A = elmo_vectors([job_description_a])[0]
    B = elmo_vectors([job_description_b])[0]
    similarity = float(cosine_similarity([A, B])[0][1])
@@ -161,6 +160,8 @@ def main():
     if submit_button:
       job_description_list = [Job_description1,Job_description2,Job_description3,Job_description4,Job_description5,Job_description6]
       corr = pd.DataFrame(index = ["job description {}".format(i) for i in range(1,7)])
+      if model_option == "ELMo":
+        st.warning("Warning !!! This will take some time - it requires patience")
       for i in range(1,7):
         corr["job description {}".format(i)] = [similarity_score(job_description_list[i-1],job_description_list[k-1], model_option) for k in range(1,7)]
         most_correlated = corr["job description 1"][1:].idxmax()
