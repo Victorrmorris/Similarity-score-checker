@@ -126,7 +126,7 @@ def main():
     """## Job description Similarity Scorer"""
 
     with st.expander("About"):
-        st.write("This App checks for the similarity between two job descriptions and returns the score, the model uses certain keywords which can be found [here](https://docs.google.com/spreadsheets/d/1ILSICeRE3GQRiQGbRfoChAoP6PZSQt6f)")
+        st.write("This App checks for the similarity between two job descriptions and returns the score, There are 3 models here currently, CountVectorizer, FastText and ELMo")
    
     with st.expander("Settings"):
         model_option = st.selectbox('Kindly select preferred model',('Count vectorizer- scikit learn', 'ELMo','Fasttext'))
