@@ -72,6 +72,7 @@ def similarity_score_fasttext(job_description_a, job_description_b):
     return round(similarity*100,4)
 
 def similarity_score_elmo(job_description_a, job_description_b):
+   st.warning("Warning !!! This will take some time - it requires patience")
    A = elmo_vectors([job_description_a])[0]
    B = elmo_vectors([job_description_b])[0]
    similarity = float(cosine_similarity([A, B])[0][1])
@@ -84,7 +85,6 @@ def similarity_score(job_description_a, job_description_b, model):
   if model == 'Count vectorizer- scikit learn':
     return(similarity_score_scikit(job_description_a, job_description_b))
   elif model == 'ELMo':
-    print("Warning !!! This will take some time - it requires patience")
     return(similarity_score_elmo(job_description_a, job_description_b))
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
