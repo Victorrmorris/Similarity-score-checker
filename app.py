@@ -93,7 +93,7 @@ if st.button("Submit"):
 
 
 
-def plot_word_cloud(text_list):
+    def plot_word_cloud(text_list):
   comment_words = ''
   stopwords = set(STOPWORDS)
 
