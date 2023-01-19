@@ -123,10 +123,10 @@ def main():
     st.set_page_config(page_title ="Talintd Job Design and Role Crafting Template", 
                        page_icon=':desktop_computer:', 
                        layout='centered')
-    """## Job description Similarity Scorer"""
+    """## Job design similarity scorer"""
 
     with st.expander("About"):
-        st.write("This App checks for the similarity between two job descriptions and returns the score, There are 3 models here currently, CountVectorizer, FastText and ELMo")
+        st.write("This App checks for the similarity between a veterans civilian job design and returns the score, There are 3 models here currently, CountVectorizer, FastText and ELMo")
    
     with st.expander("Settings"):
         model_option = st.selectbox('Kindly select preferred model',('Count vectorizer- scikit learn', 'ELMo','Fasttext'))
