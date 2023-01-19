@@ -89,7 +89,7 @@ def similarity_score(job_description_a, job_description_b, model):
     return(similarity_score_elmo(job_description_a, job_description_b))
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
-if st.button("Submit")
+if st.button("Submit"):
 
 
 
