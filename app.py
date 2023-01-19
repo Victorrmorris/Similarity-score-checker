@@ -94,7 +94,7 @@ def similarity_score(job_description_a, job_description_b, model):
 def plot_word_cloud(text_list):
   comment_words = ''
   stopwords = set(STOPWORDS)
-    job_description_a = st.text_input("Enter first job description")
+job_description_a = st.text_input("Enter first job description")
 job_description_b = st.text_input("Enter second job description")
 model = st.selectbox("Select a model", ['Count vectorizer- scikit learn', 'ELMo', 'Fasttext'])
 if st.button("Submit"):
