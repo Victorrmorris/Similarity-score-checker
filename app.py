@@ -117,7 +117,7 @@ if st.button("Submit"):
                            background_color ='white',
                            stopwords = stopwords,
                            min_font_size = 10).generate(comment_words)
-  return(wordcloud)
+      return(wordcloud)
 
 def main():
     
