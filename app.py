@@ -185,7 +185,6 @@ def main():
         # plot the WordCloud image                      
         fig2 = plt.figure(figsize = (8, 8), facecolor = None)
         plt.imshow(plot_word_cloud(job_description_list))
-        if st.button("Submit")
         plt.axis("off")
         plt.title("Word cloud of the job descriptions")
         plt.tight_layout(pad = 0)
