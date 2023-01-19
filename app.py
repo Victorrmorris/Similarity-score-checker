@@ -94,7 +94,7 @@ if st.button("Submit"):
 
 
     def plot_word_cloud(text_list):
-    comment_words = ''stopwords = set(STOPWORDS)
+        comment_words = ''stopwords = set(STOPWORDS)
 
 
 
