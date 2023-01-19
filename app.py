@@ -89,6 +89,13 @@ def similarity_score(job_description_a, job_description_b, model):
     return(similarity_score_elmo(job_description_a, job_description_b))
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
+if st.button("Submit"):
+    job_description_a = st.text_input("Enter first job description")
+    job_description_b = st.text_input("Enter second job description")
+    model = st.selectbox("Select a model", ['Count vectorizer- scikit learn', 'ELMo', 'Fasttext'])
+    similarity = similarity_score(job_description_a, job_description_b, model)
+    st.write("Similarity score: ", similarity, "%")
+
 
 
 def plot_word_cloud(text_list):
