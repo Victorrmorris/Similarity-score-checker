@@ -99,7 +99,7 @@ if st.button("Submit"):
 
 
 
-  for val in text_list:
+    for val in text_list:
       
       # typecaste each val to string
       val = str(val)
