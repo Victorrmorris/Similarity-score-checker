@@ -57,6 +57,7 @@ def similarity_score_scikit(job_description_a, job_description_b):
   B = jdb.toarray()[0]
   similarity = float(np.dot(A,B)/(norm(A)*norm(B)))
   if np.isnan(similarity):
+  
     return(0)
   else:
     return round(similarity*100,4)
@@ -88,6 +89,7 @@ def similarity_score(job_description_a, job_description_b, model):
     return(similarity_score_elmo(job_description_a, job_description_b))
   elif model == 'Fasttext':
     return(similarity_score_fasttext(job_description_a, job_description_b))
+if st.button("Submit")
 
 
 def plot_word_cloud(text_list):
@@ -190,4 +192,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-if st.button("Submit")
+
