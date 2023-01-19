@@ -117,7 +117,12 @@ if st.button("Submit"):
                            background_color ='white',
                            stopwords = stopwords,
                            min_font_size = 10).generate(comment_words)
-      return(wordcloud)
+def plot_word_cloud(text_list):
+    comment_words = ''
+    stopwords = set(STOPWORDS)
+    # ...
+    return(wordcloud)
+
 
 def main():
     
