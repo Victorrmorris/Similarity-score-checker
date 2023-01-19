@@ -94,7 +94,7 @@ def similarity_score(job_description_a, job_description_b, model):
 def plot_word_cloud(text_list):
   comment_words = ''
   stopwords = set(STOPWORDS)
-if st.button("Submit")
+    if st.button("Submit")
 
 
   for val in text_list:
