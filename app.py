@@ -160,7 +160,7 @@ def main():
         Job_description6 = st.text_area("Job description",value=demo_6)
         submit_button = st.form_submit_button()
 
-    if submit_button:
+    if st.button("Submit"):
       job_design_list = [Job_design1,Job_description2,Job_description3,Job_description4,Job_description5,Job_description6]
       corr = pd.DataFrame(index = ["job description {}".format(i) for i in range(1,7)])
       if model_option == "ELMo":
