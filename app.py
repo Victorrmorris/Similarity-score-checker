@@ -126,7 +126,7 @@ def main():
     """## Job description Similarity Scorer"""
 
     with st.expander("About"):
-        st.write("This App checks for the similarity between two job descriptions and returns the score, There are 3 models here currently, CountVectorizer, FastText and ELMo")
+        st.write("This App checks for the similarity between your resume and desired job descriptions and returns the score, There are 3 models here currently, CountVectorizer, FastText and ELMo")
    
     with st.expander("Settings"):
         model_option = st.selectbox('Kindly select preferred model',('Count vectorizer- scikit learn', 'ELMo','Fasttext'))
@@ -149,12 +149,12 @@ def main():
       demo_6 = ""
 
     with st.form(key = 'form1', clear_on_submit=False):
-        Job_description1 = st.text_area("First Job description", value=demo_1)
-        Job_description2 = st.text_area("Second Job description",value=demo_2)
-        Job_description3 = st.text_area("Third Job description",value=demo_3)
-        Job_description4 = st.text_area("Fourth Job description",value=demo_4)
-        Job_description5 = st.text_area("Fifth Job description",value=demo_5)
-        Job_description6 = st.text_area("Sixth Job description",value=demo_6)
+        Job_description1 = st.text_area("Your resume", value=demo_1)
+        Job_description2 = st.text_area("FirstJob description",value=demo_2)
+        Job_description3 = st.text_area("Second Job description",value=demo_3)
+        Job_description4 = st.text_area("Third Job description",value=demo_4)
+        Job_description5 = st.text_area("Fourth Job description",value=demo_5)
+        Job_description6 = st.text_area("Fifth Job description",value=demo_6)
         submit_button = st.form_submit_button()
 
     if submit_button:
